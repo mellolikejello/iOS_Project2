@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
 #import "MasterViewController.h"
+#import "Menu.h"
+
+NSString * const kMENU_DATA = @"midnightOilMenu";
 
 @implementation AppDelegate
 
@@ -32,6 +34,9 @@
         MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
         controller.managedObjectContext = self.managedObjectContext;
     }
+    
+    [self loadData];
+    
     return YES;
 }
 							
@@ -158,4 +163,34 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+-(void)loadData{
+    NSDictionary *jsonDict;
+    NSString *path = [[NSBundle mainBundle]pathForResource:kMENU_DATA ofType:@"js"];
+    NSError *error;
+    NSData *jsonData = [NSData dataWithContentsOfFile:path options:NSDataReadingUncached error:&error];
+    
+    if(error){
+        UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error parsing JSON data" message:[error description] delegate:self cancelButtonTitle:nil otherButtonTitles:@":(", nil];
+        [alert show];
+    }else{
+        jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+        if(error){
+            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error parsing JSON data" message:[error description] delegate:self cancelButtonTitle:nil otherButtonTitles:@":(", nil];
+            [alert show];
+        }else{
+            NSMutableArray *items = jsonDict[@"Seasonal Drinks"];
+            [Menu sharedMenu].allItems = items;
+            NSLog(@"menu = %@", items);
+        }
+    }
+}
+
 @end
+
+
+
+
+
+
+
+
