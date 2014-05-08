@@ -13,7 +13,7 @@
 -(id)initWithDictionary:(NSDictionary *)dict{
     self.name = dict[@"name"] ? dict[@"name"]: @"Unnamed item";
     self.info = dict[@"info"] ? dict[@"info"]: @"No description";
-    // add prices with subclasses for sizes?
+    self.prices = dict[@"prices"] ? dict[@"prices"]: nil;
     
     return self;
 }

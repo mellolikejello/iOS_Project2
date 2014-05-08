@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *info;
+@property (nonatomic) NSDictionary *prices;
 
 -(id)initWithDictionary:(NSDictionary*)dict;
 
