@@ -9,6 +9,7 @@
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+#import "MenuItem.h"
 
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -81,10 +82,9 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     //[self configureCell:cell atIndexPath:indexPath];
+    MenuItem *item = [Menu sharedMenu].allItems[indexPath.row];
     
-    NSDictionary *dict = [Menu sharedMenu].allItems[indexPath.row];
-    
-    cell.textLabel.text = @"test1";
+    cell.textLabel.text = item.name;
     return cell;
 }
 

@@ -9,8 +9,10 @@
 #import "AppDelegate.h"
 #import "MasterViewController.h"
 #import "Menu.h"
+#import "MenuItem.h"
 
-NSString * const kMENU_DATA = @"midnightOilMenu";
+//NSString * const kMENU_DATA = @"midnightOilMenu";
+NSString * const kMENU_DATA = @"midnightOilProto";
 
 @implementation AppDelegate
 
@@ -178,9 +180,17 @@ NSString * const kMENU_DATA = @"midnightOilMenu";
             UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error parsing JSON data" message:[error description] delegate:self cancelButtonTitle:nil otherButtonTitles:@":(", nil];
             [alert show];
         }else{
-            NSMutableArray *items = jsonDict[@"Seasonal Drinks"];
-            [Menu sharedMenu].allItems = items;
-            NSLog(@"menu = %@", items);
+            // currently Seasonal Drinks
+            NSArray *items = jsonDict[@"categories"][0][@"Seasonal Drinks"];
+            NSMutableArray *allMenuItems = [[NSMutableArray alloc] init];
+            
+            for (int i = 0; i < items.count; i++) {
+                MenuItem *item = [[MenuItem alloc] initWithDictionary: [items objectAtIndex:i]];
+                [allMenuItems addObject:item];
+            }
+            
+            [Menu sharedMenu].allItems = allMenuItems;
+            //NSLog(@"menu = %@", allMenuItems);
         }
     }
 }

@@ -28,6 +28,8 @@
 		3F808FAF19199ADF007911E2 /* RITMidnightOilAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F808FAE19199ADF007911E2 /* RITMidnightOilAppTests.m */; };
 		B94E04A7191B244E002C559D /* midnightOilMenu.js in Resources */ = {isa = PBXBuildFile; fileRef = B94E04A6191B244E002C559D /* midnightOilMenu.js */; };
 		B94E04AA191B29D0002C559D /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = B94E04A9191B29D0002C559D /* Menu.m */; };
+		B94E04AF191B3F48002C559D /* midnightOilProto.js in Resources */ = {isa = PBXBuildFile; fileRef = B94E04AD191B3E18002C559D /* midnightOilProto.js */; };
+		B94E04B2191B40D5002C559D /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B94E04B1191B40D5002C559D /* MenuItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,9 @@
 		B94E04A6191B244E002C559D /* midnightOilMenu.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = midnightOilMenu.js; sourceTree = "<group>"; };
 		B94E04A8191B29D0002C559D /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B94E04A9191B29D0002C559D /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		B94E04AD191B3E18002C559D /* midnightOilProto.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = midnightOilProto.js; sourceTree = "<group>"; };
+		B94E04B0191B40D5002C559D /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		B94E04B1191B40D5002C559D /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +181,7 @@
 		B94E04A5191B244E002C559D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				B94E04AD191B3E18002C559D /* midnightOilProto.js */,
 				B94E04A6191B244E002C559D /* midnightOilMenu.js */,
 			);
 			name = Data;
@@ -187,6 +193,8 @@
 			children = (
 				B94E04A8191B29D0002C559D /* Menu.h */,
 				B94E04A9191B29D0002C559D /* Menu.m */,
+				B94E04B0191B40D5002C559D /* MenuItem.h */,
+				B94E04B1191B40D5002C559D /* MenuItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -281,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B94E04AF191B3F48002C559D /* midnightOilProto.js in Resources */,
 				B94E04A7191B244E002C559D /* midnightOilMenu.js in Resources */,
 				3F808F9019199ADE007911E2 /* Main_iPad.storyboard in Resources */,
 				3F808F9B19199ADE007911E2 /* Images.xcassets in Resources */,
@@ -307,6 +316,7 @@
 				3F808F9919199ADE007911E2 /* DetailViewController.m in Sources */,
 				3F808F9619199ADE007911E2 /* MasterViewController.m in Sources */,
 				B94E04AA191B29D0002C559D /* Menu.m in Sources */,
+				B94E04B2191B40D5002C559D /* MenuItem.m in Sources */,
 				3F808F8A19199ADE007911E2 /* AppDelegate.m in Sources */,
 				3F808F8619199ADE007911E2 /* main.m in Sources */,
 				3F808F9319199ADE007911E2 /* RITMidnightOilApp.xcdatamodeld in Sources */,
