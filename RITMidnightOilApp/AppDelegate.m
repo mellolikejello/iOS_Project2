@@ -180,13 +180,22 @@ NSString * const kMENU_DATA = @"midnightOilProto";
             UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Error parsing JSON data" message:[error description] delegate:self cancelButtonTitle:nil otherButtonTitles:@":(", nil];
             [alert show];
         }else{
-            // currently Seasonal Drinks
-            NSArray *items = jsonDict[@"categories"][0][@"Seasonal Drinks"];
+            NSArray *items = jsonDict[@"categories"];
             NSMutableArray *allMenuItems = [[NSMutableArray alloc] init];
             
             for (int i = 0; i < items.count; i++) {
-                MenuItem *item = [[MenuItem alloc] initWithDictionary: [items objectAtIndex:i]];
-                [allMenuItems addObject:item];
+                if([items objectAtIndex:i][@"category"]){
+                    // we have a header
+                    NSArray *subItems = [items objectAtIndex:i][@"items"];
+                    for(int j=0; j<subItems.count;j++){
+                        MenuItem *subItem = [[MenuItem alloc] initWithDictionary: [subItems objectAtIndex:j]];
+                        [allMenuItems addObject:subItem];
+                    }
+                }
+                else{
+                    MenuItem *item = [[MenuItem alloc] initWithDictionary: [items objectAtIndex:i]];
+                    [allMenuItems addObject:item];
+                }
             }
             
             [Menu sharedMenu].allItems = allMenuItems;
