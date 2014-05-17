@@ -1,3 +1,4 @@
+
 //
 //  MenuVC.m
 //  RITMidnightOil_iPhone
@@ -138,9 +139,7 @@
         //MenuItem *item = [Menu sharedMenu].allItems[indexPath.row];
     NSArray *itemArray = [Menu sharedMenu].organizedItems[indexPath.section];
     MenuItem *item = itemArray[indexPath.row];
-        NSLog(@"%@ selected", item.name);
-        //self.detailViewController.detailItem = item;
-
+    NSLog(@"%@ selected", item.name);
 }
 
 /*
@@ -182,16 +181,18 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ItemDetailVC *destinationController = (ItemDetailVC*)[segue destinationViewController];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSArray *itemArray = [Menu sharedMenu].organizedItems[indexPath.section];
+    MenuItem *item = itemArray[indexPath.row];
+    destinationController.selectedItem = item;
 }
 
- */
 
 @end

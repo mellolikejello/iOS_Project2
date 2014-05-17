@@ -10,14 +10,13 @@
 #import "Menu.h"
 #import "MenuItem.h"
 
-//NSString * const kMENU_DATA = @"midnightOilMenu";
-NSString * const MENU_DATA = @"midnightOilProto";
+NSString * const kMENU_DATA = @"midnightOilMenu";
 
 @implementation AppDelegate
 
 -(void)loadData{
     NSDictionary *jsonDict;
-    NSString *path = [[NSBundle mainBundle]pathForResource:MENU_DATA ofType:@"js"];
+    NSString *path = [[NSBundle mainBundle]pathForResource:kMENU_DATA ofType:@"js"];
     NSError *error;
     NSData *jsonData = [NSData dataWithContentsOfFile:path options:NSDataReadingUncached error:&error];
     
@@ -50,7 +49,6 @@ NSString * const MENU_DATA = @"midnightOilProto";
                         
                     }
                     [[Menu sharedMenu].organizedItems addObject:organizedItems];
-                    //NSLog(@"%d",[Menu sharedMenu].organizedItems.count);
                 }
                 else{
                     MenuItem *item = [[MenuItem alloc] initWithDictionary: [items objectAtIndex:i]];

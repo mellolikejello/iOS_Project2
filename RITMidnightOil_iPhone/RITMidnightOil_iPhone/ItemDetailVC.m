@@ -9,7 +9,13 @@
 #import "ItemDetailVC.h"
 
 @interface ItemDetailVC ()
-
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UITextView *description;
+@property (weak, nonatomic) IBOutlet UIButton *tall;
+@property (weak, nonatomic) IBOutlet UIButton *grande;
+@property (weak, nonatomic) IBOutlet UIButton *venti;
+@property (weak, nonatomic) IBOutlet UILabel *price;
+@property (weak, nonatomic) IBOutlet UIButton *order;
 @end
 
 @implementation ItemDetailVC
@@ -26,7 +32,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.name.text = self.selectedItem.name;
+    if(self.selectedItem.info){
+        self.description.text = self.selectedItem.info;
+    }else{
+        self.description.text = @"";
+    }
+    if([self.selectedItem.prices count] != 3){
+        self.tall.hidden = YES;
+        [self.grande setTitle:@"regular" forState:UIControlStateNormal];
+        self.venti.hidden = YES;
+        self.price.text = [NSString stringWithFormat:@"%@", self.selectedItem.prices[@"regular"]];
+    }else{
+    }
+    self.price.text = @"";
+    [self.order addTarget:self action:@selector(orderClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,5 +65,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)orderClick:(id)sender{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
 
 @end

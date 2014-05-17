@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuItem.h"
 
 @interface ItemDetailVC : UIViewController
-
+@property(nonatomic) MenuItem *selectedItem;
 @end

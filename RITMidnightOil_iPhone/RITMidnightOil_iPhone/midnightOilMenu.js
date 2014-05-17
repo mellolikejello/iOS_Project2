@@ -23,18 +23,23 @@
 			}}
 		]},
 		{
-			"name":"Frappuccinos",
-			"flavors":[
-				"Coffee","Caramel","Mocha","Vanilla Bean","Strawberries & Creme"
-			],
-			"price":4.79
-		},
-		{
-			"name":"Frozen Drinks",
-			"price":4.79,
-			"flavors":[
-				"Cookies & Creme", "Grasshopper", "Frozen Hot Chocolate"
-			]
+        "category":"Frapps + Frozen",
+        "items":[
+            {
+            "name":"Frappuccinos",
+            "flavors":[
+			"Coffee","Caramel","Mocha","Vanilla Bean","Strawberries & Creme"
+            ],
+            "prices":{ "regular": 4.79}
+            },
+            {
+            "name":"Frozen Drinks",
+            "flavors":[
+			"Cookies & Creme", "Grasshopper", "Frozen Hot Chocolate"
+            ],
+            "prices":{ "regular": 4.79}
+        	}
+        ]
 		},
 		{
 		"category":"Coffee",
