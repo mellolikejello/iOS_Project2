@@ -16,7 +16,7 @@
 
 @implementation MenuVC{
 #warning working on collapsible items here
-    NSArray *_collapseBools;
+    NSMutableArray *_collapseBools;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -93,7 +93,7 @@
     return myView;
 }
 
-- (void)headerTapped {
+- (void)headerTapped:(UIButton*)sender {
 #warning working on collapsible items when user taps button on header
     
     if ([collapseBools[sender.tag]boolValue] == NO)
