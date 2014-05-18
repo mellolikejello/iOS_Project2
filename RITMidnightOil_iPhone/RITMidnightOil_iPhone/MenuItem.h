@@ -14,8 +14,6 @@
 @property (nonatomic, copy) NSString *info;
 @property (nonatomic) NSDictionary *prices;
 @property (nonatomic) BOOL isOrdered;
-
 -(id)initWithDictionary:(NSDictionary*)dict;
-//TODO: add order feature - change isOrdered to true and add options, if any
 
 @end

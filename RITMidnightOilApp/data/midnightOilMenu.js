@@ -4,13 +4,11 @@
 			{
 			"name":"Carib-bean",
 			"info":"Coconut + Caramel Iced Latte",
-			"prices":{
-				"grande":4.79}},
+			"price": 4.79},
 			{
 			"name":"Soy Dream",
 			"info":"Soymilk + Tangerine + OJ + Vanilla Pudding Mix, Blended",
-			"prices":{
-				"grande":4.79}},
+			"price": 4.79},
 			{
 			"name":"Piña Paradise",
 			"info":"Vanilla Bean Frappuccino + Coconut Pineapple",
@@ -126,9 +124,7 @@
 				}
 			},
 			"Double Espresso":{
-				"prices":{
-					"tall":1.99
-				}
+				"price":1.99
 			}
 		},
 		"Non-Coffee Drinks":{

@@ -19,7 +19,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancel;
 @end
 
-@implementation ItemDetailVC
+@implementation ItemDetailVC{
+    float _priceVal;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +46,7 @@
         [self.grande setTitle:@"regular" forState:UIControlStateNormal];
         self.venti.hidden = YES;
         self.price.text = [NSString stringWithFormat:@"%@", self.selectedItem.prices[@"regular"]];
+    } else {
     }
     self.price.text = @"";
     [self.cancel addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
@@ -66,6 +69,7 @@
 }
 */
 - (IBAction)order:(id)sender {
+    self.selectedItem.isOrdered = true;
     [[Order sharedOrder]addItem:self.selectedItem];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }

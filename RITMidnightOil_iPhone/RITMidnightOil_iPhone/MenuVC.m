@@ -16,7 +16,7 @@
 
 @implementation MenuVC{
 #warning working on collapsible items here
-    NSMutableArray *_collapseBools;
+    NSMutableArray *collapseBools;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -94,7 +94,7 @@
     button.tag = section;
     button.hidden = NO;
     [button setBackgroundColor:[UIColor clearColor]];
-    [button addTarget:self action:@selector(headerTapped) forControlEvents:UIControlEventTouchDown];
+    [button addTarget:self action:@selector(headerTapped:) forControlEvents:UIControlEventTouchDown];
     [myView addSubview:button];
     
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];

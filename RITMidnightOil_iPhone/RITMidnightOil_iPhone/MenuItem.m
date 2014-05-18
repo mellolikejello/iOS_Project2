@@ -17,8 +17,23 @@
 -(id)initWithDictionary:(NSDictionary *)dict{
     self.name = dict[@"name"] ? dict[@"name"]: @"Unnamed item";
     self.info = dict[@"info"] ? dict[@"info"]: @"No description";
-    self.prices = dict[@"prices"] ? dict[@"prices"]: nil;
+    if(dict[@"prices"]){
+        self.prices = dict[@"prices"];
+        // grande by default
+        _selectedPrice = self.prices[@"grande"] ? [self.prices[@"grande"] doubleValue]: 0.00;
+    }
+    else if(dict[@"price"]){
+        self.prices = nil;
+        _selectedPrice = [dict[@"prices"] doubleValue];
+    }
+    else{
+        NSLog(@"super exception in MenuItem -- check, %@", self.name);
+    }
     self.isOrdered = false;
+    _options = [NSMutableArray array];
+    if(self.prices){
+        
+    }
     return self;
 }
 
