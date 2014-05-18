@@ -82,13 +82,22 @@
     [myView addSubview:label];
     
     [button setFrame:CGRectMake(285.0, 2.5, 30.0, 25.0)];
-    [button setTitle:@"+" forState:UIControlStateNormal];
+    
+    if ([collapseBools objectAtIndex:section]== [NSNumber numberWithBool:YES]) {
+        NSLog(@"this button should be a minus sign");
+        [button setTitle:@"-" forState:UIControlStateNormal];
+    } else {
+        [button setTitle:@"+" forState:UIControlStateNormal];
+    }
+    
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     button.tag = section;
     button.hidden = NO;
     [button setBackgroundColor:[UIColor clearColor]];
     [button addTarget:self action:@selector(headerTapped) forControlEvents:UIControlEventTouchDown];
     [myView addSubview:button];
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
     
     return myView;
 }
