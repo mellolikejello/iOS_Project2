@@ -27,13 +27,10 @@
         _selectedPrice = [dict[@"prices"] doubleValue];
     }
     else{
-        NSLog(@"super exception in MenuItem -- check, %@", self.name);
+        NSLog(@"Check %@ Menu Item pricing", self.name);
     }
     self.isOrdered = false;
     _options = [NSMutableArray array];
-    if(self.prices){
-        
-    }
     return self;
 }
 
