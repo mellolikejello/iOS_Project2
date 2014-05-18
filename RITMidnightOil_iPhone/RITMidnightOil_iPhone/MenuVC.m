@@ -33,20 +33,16 @@
 {
     [super viewDidLoad];
 
+    collapseBools = [NSMutableArray array];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-/*-(NSArray *)topLevelItems{
-    NSMutableArray *items = [NSMutableArray array];
-    
-    for (int i=0; i<; <#increment#>) {
-        <#statements#>
+    for (int i =0; i<[Menu sharedMenu].allCategories.count; i++) {
+        [collapseBools addObject:[NSNumber numberWithBool:FALSE]];
     }
-}*/
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -100,7 +96,14 @@
 - (void)headerTapped {
 #warning working on collapsible items when user taps button on header
     
-    NSLog(@"You've tapped the header!");
+    if ([collapseBools[sender.tag]boolValue] == NO)
+        collapseBools[sender.tag] = [NSNumber numberWithBool:YES];
+    else
+        collapseBools[sender.tag]= [NSNumber numberWithBool:NO];
+    
+    NSLog(@"now it's %@",collapseBools[sender.tag]);
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sender.tag] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -114,7 +117,13 @@
     //return [[Menu sharedMenu].organizedItems objectAtIndex:section].count;
     //NSLog(@"%d",[[[Menu sharedMenu].organizedItems objectAtIndex:section] count]);
     //return [Menu sharedMenu].allItems.count;
-    return [[[Menu sharedMenu].organizedItems objectAtIndex:section] count];
+    NSLog(@"%@",collapseBools[section]);
+    
+    if ([collapseBools[section] boolValue] == 0) {
+        return 0;
+    } else {
+        return [[[Menu sharedMenu].organizedItems objectAtIndex:section] count];
+    }
     
 }
 
