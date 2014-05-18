@@ -8,6 +8,25 @@
 
 #import "Order.h"
 
-@implementation Order
+@implementation Order{
+    NSMutableArray *_items;
+}
+
+-(id)init{
+    self = [super init];
+    if(self){
+        _items = [NSMutableArray array];
+    }
+    return self;
+}
+
+-(void)addItem:(MenuItem*)item{
+    [_items addObject:item];
+}
+
+-(NSString*)getTotal{
+    // sum total in _items
+    return @"$0.00";
+}
 
 @end

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *venti;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UIButton *order;
+@property (weak, nonatomic) IBOutlet UIButton *cancel;
 @end
 
 @implementation ItemDetailVC
@@ -33,7 +34,7 @@
 {
     [super viewDidLoad];
     self.name.text = self.selectedItem.name;
-    if(self.selectedItem.info){
+    if(![self.selectedItem.info  isEqual: @"No description"]){
         self.description.text = self.selectedItem.info;
     }else{
         self.description.text = @"";
@@ -43,10 +44,10 @@
         [self.grande setTitle:@"regular" forState:UIControlStateNormal];
         self.venti.hidden = YES;
         self.price.text = [NSString stringWithFormat:@"%@", self.selectedItem.prices[@"regular"]];
-    }else{
     }
     self.price.text = @"";
     [self.order addTarget:self action:@selector(orderClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [self.cancel addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +68,10 @@
 */
 
 -(void)orderClick:(id)sender{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)cancelClick:(id)sender{
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 

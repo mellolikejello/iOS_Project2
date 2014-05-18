@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MenuItem.h"
 
 @interface Order : NSObject
-
+-(id)init;
+-(void)addItem:(MenuItem*)item;
+-(NSString*)getTotal;
 @end

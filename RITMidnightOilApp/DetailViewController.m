@@ -10,6 +10,7 @@
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (weak, nonatomic) IBOutlet UIButton *order;
 - (void)configureView;
 @end
 
