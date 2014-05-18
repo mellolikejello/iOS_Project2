@@ -140,13 +140,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    //[self configureCell:cell atIndexPath:indexPath];
-    
     NSArray *itemArray = [Menu sharedMenu].organizedItems[indexPath.section];
     MenuItem *item = itemArray[indexPath.row];
-    
-    NSLog(@"%@",item);
-    //item = [Menu sharedMenu].allItems[indexPath.row];
     cell.textLabel.text = item.name;
     return cell;
 }
@@ -157,7 +152,6 @@
         //MenuItem *item = [Menu sharedMenu].allItems[indexPath.row];
     NSArray *itemArray = [Menu sharedMenu].organizedItems[indexPath.section];
     MenuItem *item = itemArray[indexPath.row];
-    NSLog(@"%@ selected", item.name);
 }
 
 /*

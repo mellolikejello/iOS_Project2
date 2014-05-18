@@ -24,6 +24,7 @@
 		3F59D95A191BBA3600064448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F59D939191BBA3300064448 /* UIKit.framework */; };
 		3F59D962191BBA3600064448 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F59D960191BBA3600064448 /* InfoPlist.strings */; };
 		3F59D964191BBA3700064448 /* RITMidnightOil_iPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F59D963191BBA3700064448 /* RITMidnightOil_iPhoneTests.m */; };
+		B930E18B1929273300F16A12 /* OrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B930E18A1929273300F16A12 /* OrderVC.m */; };
 		B986339C192838ED00867E75 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B986339B192838ED00867E75 /* Order.m */; };
 		B9DCC31B1926F7200004D5F3 /* ItemDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DCC31A1926F7200004D5F3 /* ItemDetailVC.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		3F59D95F191BBA3600064448 /* RITMidnightOil_iPhoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RITMidnightOil_iPhoneTests-Info.plist"; sourceTree = "<group>"; };
 		3F59D961191BBA3600064448 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F59D963191BBA3700064448 /* RITMidnightOil_iPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RITMidnightOil_iPhoneTests.m; sourceTree = "<group>"; };
+		B930E1891929273300F16A12 /* OrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderVC.h; sourceTree = "<group>"; };
+		B930E18A1929273300F16A12 /* OrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderVC.m; sourceTree = "<group>"; };
 		B986339A192838ED00867E75 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		B986339B192838ED00867E75 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		B9DCC3191926F7200004D5F3 /* ItemDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailVC.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 				B9DCC31A1926F7200004D5F3 /* ItemDetailVC.m */,
 				3F3E88C3192011950098B70C /* MenuVC.h */,
 				3F3E88C4192011950098B70C /* MenuVC.m */,
+				B930E1891929273300F16A12 /* OrderVC.h */,
+				B930E18A1929273300F16A12 /* OrderVC.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F59D946191BBA3600064448 /* AppDelegate.m in Sources */,
+				B930E18B1929273300F16A12 /* OrderVC.m in Sources */,
 				3F3E88C119200A300098B70C /* Menu.m in Sources */,
 				B9DCC31B1926F7200004D5F3 /* ItemDetailVC.m in Sources */,
 				3F3E88C219200A300098B70C /* MenuItem.m in Sources */,

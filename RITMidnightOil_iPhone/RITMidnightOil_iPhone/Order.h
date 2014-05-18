@@ -10,7 +10,10 @@
 #import "MenuItem.h"
 
 @interface Order : NSObject
+@property (nonatomic) NSMutableArray *items;
+
 -(id)init;
 -(void)addItem:(MenuItem*)item;
 -(NSString*)getTotal;
++(instancetype)sharedOrder;
 @end

@@ -8,20 +8,33 @@
 
 #import "Order.h"
 
-@implementation Order{
-    NSMutableArray *_items;
+@implementation Order
+
++(id)sharedOrder{
+    static Order *sharedOrder = nil;
+    
+    if(!sharedOrder){
+        sharedOrder = [[self alloc] initPrivate];
+    }
+    
+    return sharedOrder;
 }
 
--(id)init{
+-(instancetype)init{
+    @throw [NSException exceptionWithName:@"Singleton" reason:@"Use +[Order sharedOrder]" userInfo:nil];
+    return nil;
+}
+
+-(instancetype)initPrivate{
     self = [super init];
     if(self){
-        _items = [NSMutableArray array];
+        self.items = [NSMutableArray array];
     }
     return self;
 }
 
 -(void)addItem:(MenuItem*)item{
-    [_items addObject:item];
+    [self.items addObject:item];
 }
 
 -(NSString*)getTotal{

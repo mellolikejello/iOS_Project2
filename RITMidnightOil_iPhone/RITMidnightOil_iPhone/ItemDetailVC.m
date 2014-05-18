@@ -34,7 +34,7 @@
 {
     [super viewDidLoad];
     self.name.text = self.selectedItem.name;
-    if(![self.selectedItem.info  isEqual: @"No description"]){
+    if(![self.selectedItem.info isEqual: @"No description"]){
         self.description.text = self.selectedItem.info;
     }else{
         self.description.text = @"";
@@ -46,7 +46,6 @@
         self.price.text = [NSString stringWithFormat:@"%@", self.selectedItem.prices[@"regular"]];
     }
     self.price.text = @"";
-    [self.order addTarget:self action:@selector(orderClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
     [self.cancel addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
 }
 
@@ -66,8 +65,8 @@
     // Pass the selected object to the new view controller.
 }
 */
-
--(void)orderClick:(id)sender{
+- (IBAction)order:(id)sender {
+    [[Order sharedOrder]addItem:self.selectedItem];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
