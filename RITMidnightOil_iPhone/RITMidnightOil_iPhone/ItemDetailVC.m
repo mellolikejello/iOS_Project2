@@ -53,6 +53,15 @@
         _selectedFlavor = self.flavors[0];
     } else {
         self.flavorPicker.hidden = YES;
+        CGRect tallFrame = self.tall.frame;
+        CGRect grandeFrame = self.grande.frame;
+        CGRect ventiFrame = self.venti.frame;
+        tallFrame.origin.y = 218;
+        grandeFrame.origin.y = 202;
+        ventiFrame.origin.y = 186;
+        self.tall.frame = tallFrame;
+        self.grande.frame = grandeFrame;
+        self.venti.frame = ventiFrame;
     }
     
     self.tall.tag = 10;
