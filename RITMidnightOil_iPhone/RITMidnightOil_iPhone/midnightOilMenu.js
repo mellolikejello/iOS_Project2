@@ -171,36 +171,24 @@
 				"venti": 3.95}
 			},
 			{"name":"Tazo Tea",
-			"flavors":{
-				"herbal":[
-					"Passion", "Wild Sweet Orange", "Calm", "Chamomile", "Refresh Mint"
-				],
-				"black":[
-					"Organic Chai", "Earl Grey", "Awake", "English Breakfast"
-				],
-				"green":[
+			"flavors":[
+					"Passion", "Wild Sweet Orange", "Calm", "Chamomile", "Refresh Mint",
+					"Organic Chai", "Earl Grey", "Awake", "English Breakfast",
 					"Lotus",
 					"Zen"
-				]
-			},
+			],
 			"prices":{
 				"tall": 1.50,
 				"grande": 1.50,
 				"venti": 1.50}
 			},
 			{"name":"Tazo Tea Latté",
-			"flavors":{
-				"herbal":[
-					"Passion", "Wild Sweet Orange", "Calm", "Chamomile", "Refresh Mint"
-				],
-				"black":[
-					"Organic Chai", "Earl Grey", "Awake", "English Breakfast"
-				],
-				"green":[
+			"flavors":[
+					"Passion", "Wild Sweet Orange", "Calm", "Chamomile", "Refresh Mint",
+					"Organic Chai", "Earl Grey", "Awake", "English Breakfast",
 					"Lotus",
 					"Zen"
-				]
-			},
+			],
 			"prices":{
 				"tall": 2.95,
 				"grande": 3.65,

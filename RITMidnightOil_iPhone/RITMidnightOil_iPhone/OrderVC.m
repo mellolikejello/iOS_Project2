@@ -75,6 +75,21 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSLog(@"selected item at %d", indexPath.row);
+    [self.tableView setEditing:YES];
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        [[Order sharedOrder].items removeObjectAtIndex:indexPath.row];
+        [self.tableView reloadData];
+        [self.tableView setEditing:NO];
+        
+    }
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
     NSArray *totals = [[Order sharedOrder] getTotals];

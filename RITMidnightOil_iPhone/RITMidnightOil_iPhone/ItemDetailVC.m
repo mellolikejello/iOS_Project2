@@ -47,6 +47,18 @@
     if(self.selectedItem.flavors){
         [self.flavorPicker setDelegate:self];
         [self.flavorPicker setDataSource:self];
+        /*if(self.selectedItem.flavors[0][@"green"]){
+            NSMutableArray *teaFlavors = [NSMutableArray array];
+            for(int i = 0; i < [self.selectedItem.flavors count]; i++){
+                for(int j = 0; j < [[self.selectedItem.flavors objectAtIndex:i] count]; j++){
+                    [teaFlavors addObject:[[self.selectedItem.flavors objectAtIndex:i] objectAtIndex:j]];
+                }
+                
+            }
+            self.flavors = teaFlavors;
+        } else {
+            self.flavors = self.selectedItem.flavors;
+        }*/
         self.flavors = self.selectedItem.flavors;
         _selectedFlavor = self.flavors[0];
     } else {

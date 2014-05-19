@@ -146,14 +146,6 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-        // TODO: add in when order details available
-        //MenuItem *item = [Menu sharedMenu].allItems[indexPath.row];
-    NSArray *itemArray = [Menu sharedMenu].organizedItems[indexPath.section];
-    MenuItem *item = itemArray[indexPath.row];
-}
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
