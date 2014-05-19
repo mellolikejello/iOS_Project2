@@ -24,7 +24,7 @@
     }
     else if(dict[@"price"]){
         self.prices = nil;
-        _selectedPrice = [dict[@"prices"] doubleValue];
+        _selectedPrice = [dict[@"price"] doubleValue];
     }
     else{
         NSLog(@"Check %@ Menu Item pricing", self.name);
@@ -32,6 +32,10 @@
     self.isOrdered = false;
     _options = [NSMutableArray array];
     return self;
+}
+
+-(float)getSelectedPrice{
+    return _selectedPrice;
 }
 
 @end

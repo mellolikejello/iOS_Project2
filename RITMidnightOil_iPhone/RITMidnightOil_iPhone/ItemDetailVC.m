@@ -41,15 +41,17 @@
     }else{
         self.description.text = @"";
     }
-    if([self.selectedItem.prices count] != 3){
+    if(! self.selectedItem.prices){
         self.tall.hidden = YES;
         [self.grande setTitle:@"regular" forState:UIControlStateNormal];
+        self.grande.enabled = NO;
         self.venti.hidden = YES;
-        self.price.text = [NSString stringWithFormat:@"%@", self.selectedItem.prices[@"regular"]];
-    } else {
     }
-    self.price.text = @"";
+    self.price.text = [NSString stringWithFormat:@"$%0.2f", [self.selectedItem getSelectedPrice]];
     [self.cancel addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [self.tall addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [self.grande addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [self.venti addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning

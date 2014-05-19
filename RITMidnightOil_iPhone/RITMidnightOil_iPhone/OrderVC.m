@@ -31,7 +31,8 @@
     [super viewDidLoad];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
-    [self.tableView setEditing:YES];
+    //[self.tableView setEditing:YES];
+    self.totalPrice.text = [self getTotal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +57,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     MenuItem *item = [Order sharedOrder].items[indexPath.row];
     cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", [item getSelectedPrice]];
     
     return cell;
     
@@ -64,6 +66,15 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
     [super viewWillAppear:animated];
+}
+
+-(NSString *)getTotal{
+    float sum = 0;
+    NSMutableArray *items = [Order sharedOrder].items;
+    for(int i = 0; i<[items count]; i++){
+        sum += [[items objectAtIndex:i] getSelectedPrice];
+    }
+    return [NSString stringWithFormat:@"$%.2f", sum];
 }
 
 /*

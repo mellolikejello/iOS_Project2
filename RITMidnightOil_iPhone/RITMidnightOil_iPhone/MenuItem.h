@@ -15,5 +15,5 @@
 @property (nonatomic) NSDictionary *prices;
 @property (nonatomic) BOOL isOrdered;
 -(id)initWithDictionary:(NSDictionary*)dict;
-
+-(float)getSelectedPrice;
 @end
