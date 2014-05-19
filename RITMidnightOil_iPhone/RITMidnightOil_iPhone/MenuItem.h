@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *info;
 @property (nonatomic) NSDictionary *prices;
+@property (nonatomic) NSArray *flavors;
 -(id)initWithDictionary:(NSDictionary*)dict;
 -(float)selectSize:(NSString*)size;
 @end

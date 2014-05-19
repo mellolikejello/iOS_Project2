@@ -28,7 +28,7 @@
         "category":"Frapps + Frozen",
         "items":[
             {
-            "name":"Frappuccinos",
+            "name":"Frappuccino",
             "flavors":[
 			"Coffee","Caramel","Mocha","Vanilla Bean","Strawberries & Creme"
             ],
@@ -36,7 +36,7 @@
             	"regular": 4.79}
             },
             {
-            "name":"Frozen Drinks",
+            "name":"Frozen Drink",
             "flavors":[
 			"Cookies & Creme", "Grasshopper", "Frozen Hot Chocolate"
             ],

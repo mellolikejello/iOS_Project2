@@ -19,6 +19,9 @@
     else{
         NSLog(@"Check %@ Menu Item pricing", self.name);
     }
+    if(dict[@"flavors"]){
+        self.flavors = dict[@"flavors"];
+    }
     return self;
 }
 

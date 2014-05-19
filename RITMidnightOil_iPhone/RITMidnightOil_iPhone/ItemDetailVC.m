@@ -16,18 +16,19 @@
 @property (weak, nonatomic) IBOutlet UIButton *venti;
 @property (weak, nonatomic) IBOutlet UILabel *price;
 @property (weak, nonatomic) IBOutlet UIButton *order;
+@property (weak, nonatomic) IBOutlet UIPickerView *flavorPicker;
 @property (weak, nonatomic) IBOutlet UIButton *cancel;
 @end
 
 @implementation ItemDetailVC{
     float _priceVal;
+    NSString *_selectedFlavor;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -39,7 +40,16 @@
     if(![self.selectedItem.info isEqual: @"No description"]){
         self.description.text = self.selectedItem.info;
     }else{
-        self.description.text = @"";
+        self.description.hidden = YES;
+    }
+    
+    if(self.selectedItem.flavors){
+        [self.flavorPicker setDelegate:self];
+        [self.flavorPicker setDataSource:self];
+        self.flavors = self.selectedItem.flavors;
+        _selectedFlavor = self.flavors[0];
+    } else {
+        self.flavorPicker.hidden = YES;
     }
     
     self.tall.tag = 10;
@@ -79,8 +89,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UIPicker
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return self.flavors.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return self.flavors[row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    _selectedFlavor = self.flavors[row];
+    NSLog(@"selected %@", self.flavors[row]);
+}
+
 - (IBAction)order:(id)sender {
-    //self.selectedItem.isOrdered = true;
     OrderItem *orderItem = [[OrderItem alloc] initWithMenuItem: self.selectedItem];
     orderItem.price = _priceVal;
     [[Order sharedOrder] addItem:orderItem];

@@ -11,6 +11,7 @@
 #import "OrderItem.h"
 #import "Order.h"
 
-@interface ItemDetailVC : UIViewController
+@interface ItemDetailVC : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource>
 @property(nonatomic) MenuItem *selectedItem;
+@property(nonatomic)NSArray *flavors;
 @end
