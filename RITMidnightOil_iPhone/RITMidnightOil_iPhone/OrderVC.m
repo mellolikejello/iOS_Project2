@@ -8,10 +8,14 @@
 
 #import "OrderVC.h"
 
+float const kTAX_RATE = 0.08875;
+
 @interface OrderVC ()
 
-@property (weak, nonatomic) IBOutlet UILabel *totalPrice;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *subtotal;
+@property (weak, nonatomic) IBOutlet UILabel *totalPrice;
+@property (weak, nonatomic) IBOutlet UILabel *tax;
 
 @end
 
@@ -32,7 +36,10 @@
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     //[self.tableView setEditing:YES];
-    self.totalPrice.text = [self getTotal];
+    NSArray *totals = [self getTotals];
+    self.subtotal.text = [totals objectAtIndex:0];
+    self.tax.text = [totals objectAtIndex:1];
+    self.totalPrice.text = [totals objectAtIndex:2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,13 +75,24 @@
     [super viewWillAppear:animated];
 }
 
--(NSString *)getTotal{
+-(NSArray *)getTotals{
+    NSMutableArray *totals = [NSMutableArray array];
     float sum = 0;
     NSMutableArray *items = [Order sharedOrder].items;
     for(int i = 0; i<[items count]; i++){
         sum += [[items objectAtIndex:i] getSelectedPrice];
     }
-    return [NSString stringWithFormat:@"$%.2f", sum];
+    
+    NSString *sTotal = [NSString stringWithFormat:@"$%.2f", sum];
+    [totals insertObject:sTotal atIndex:0];
+    float taxAmount = sum * kTAX_RATE;
+    sTotal = [NSString stringWithFormat:@"$%.2f", taxAmount];
+    [totals insertObject:sTotal atIndex:1];
+    sum += taxAmount;
+    sTotal = [NSString stringWithFormat:@"$%.2f", sum];
+    [totals insertObject:sTotal atIndex:2];
+    
+    return totals;
 }
 
 /*
