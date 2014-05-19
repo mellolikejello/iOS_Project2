@@ -22,6 +22,7 @@
 
 @implementation ItemDetailVC{
     float _priceVal;
+    NSString *_size;
     NSString *_selectedFlavor;
 }
 
@@ -61,10 +62,13 @@
         [self.grande setTitle:@"regular" forState:UIControlStateNormal];
         self.grande.enabled = NO;
         self.venti.hidden = YES;
-        _priceVal = [self.selectedItem.prices[@"regular"] floatValue];
+        _size = @"regular";
+        _priceVal = [self.selectedItem.prices[_size] floatValue];
+        
     } else {
         self.grande.enabled = NO;
-        _priceVal = [self.selectedItem.prices[@"grande"] floatValue];
+        _size = @"grande";
+        _priceVal = [self.selectedItem.prices[_size] floatValue];
     }
     self.price.text = [NSString stringWithFormat:@"$%0.2f", _priceVal];
     [self.cancel addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
@@ -105,12 +109,15 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     _selectedFlavor = self.flavors[row];
-    NSLog(@"selected %@", self.flavors[row]);
 }
 
 - (IBAction)order:(id)sender {
     OrderItem *orderItem = [[OrderItem alloc] initWithMenuItem: self.selectedItem];
     orderItem.price = _priceVal;
+    orderItem.size = _size;
+    if(_selectedFlavor){
+        orderItem.flavor = _selectedFlavor;
+    }
     [[Order sharedOrder] addItem:orderItem];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -120,27 +127,26 @@
 }
 
 -(void)selectSize:(UIButton*)sender{
-    NSString *size;
     self.tall.enabled = YES;
     self.venti.enabled = YES;
     self.grande.enabled = YES;
     switch (sender.tag) {
         case 10:
-            size = @"tall";
+            _size = @"tall";
             self.tall.enabled = NO;
             break;
         case 20:
-            size = @"grande";
+            _size = @"grande";
             self.grande.enabled = NO;
             break;
         case 30:
-            size = @"venti";
+            _size = @"venti";
             self.venti.enabled = NO;
             break;
         default:
             break;
     }
-    _priceVal = [self.selectedItem selectSize:size];
+    _priceVal = [self.selectedItem selectSize:_size];
     self.price.text = [NSString stringWithFormat:@"$%0.2f", _priceVal];
 }
 

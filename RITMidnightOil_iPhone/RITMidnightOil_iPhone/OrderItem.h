@@ -14,6 +14,8 @@
 @property(nonatomic) MenuItem *menuItem;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic) float price;
+@property(nonatomic, copy) NSString *flavor;
+@property(nonatomic, copy) NSString *size;
 
 -(id)initWithMenuItem:(MenuItem*)item;
 

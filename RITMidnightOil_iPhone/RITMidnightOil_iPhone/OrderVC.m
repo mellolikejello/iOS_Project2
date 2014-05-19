@@ -58,6 +58,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     OrderItem *item = [Order sharedOrder].items[indexPath.row];
     cell.textLabel.text = item.name;
+    if(item.flavor){
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", item.flavor, item.name];
+        if(![item.size isEqual: @"regular"]){
+            NSString *first = [item.size substringToIndex:1];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@ %@(%@)", item.flavor, item.name, first];
+        }
+    }
+    else if(![item.size isEqual: @"regular"]){
+        NSString *first = [item.size substringToIndex:1];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@(%@)", item.name, first];
+    }
     cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", item.price];
     
     return cell;
