@@ -264,7 +264,7 @@
                                 <state key="normal" image="tallCup"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="grande" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVT-vI-ydr">
-                                <rect key="frame" x="105" y="290" width="105" height="48"/>
+                                <rect key="frame" x="108" y="290" width="105" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="grandeCup"/>
                             </button>

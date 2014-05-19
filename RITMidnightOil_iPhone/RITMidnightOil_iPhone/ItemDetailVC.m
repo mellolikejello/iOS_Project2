@@ -63,6 +63,7 @@
         self.tall.hidden = YES;
         [self.grande setTitle:@"regular" forState:UIControlStateNormal];
         self.grande.enabled = NO;
+        self.grande.hidden = YES;
         self.venti.hidden = YES;
         _size = @"regular";
         _priceVal = [self.selectedItem.prices[_size] floatValue];
