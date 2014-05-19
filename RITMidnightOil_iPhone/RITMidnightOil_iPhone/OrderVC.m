@@ -63,7 +63,12 @@ float const kTAX_RATE = 0.08875;
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     MenuItem *item = [Order sharedOrder].items[indexPath.row];
-    cell.textLabel.text = item.name;
+    NSMutableString *name = [[NSMutableString alloc]initWithString:item.name];
+    if(item.hasOptions){
+        [name appendString:[item getOptions]];
+    }
+    cell.textLabel.text = (NSString*)name;
+    //cell.textLabel.text = item.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", [item getSelectedPrice]];
     
     return cell;

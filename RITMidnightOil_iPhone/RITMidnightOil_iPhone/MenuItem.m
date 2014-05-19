@@ -38,4 +38,25 @@
     return _selectedPrice;
 }
 
+-(float)selectSize:(NSString*)size{
+    if(self.prices[size]){
+        _selectedPrice = [self.prices[size] floatValue];
+        [_options addObject:size];
+        return _selectedPrice;
+    }
+    return 0.00;
+}
+
+-(BOOL)hasOptions{
+    return _options != NULL;
+}
+
+-(NSString*)getOptions{
+    NSMutableString *opt = [NSMutableString string];
+    for(int i = 0; i<[_options count];i++){
+        [opt insertString:[_options objectAtIndex:i] atIndex:i];
+    }
+    return (NSString *)opt;
+}
+
 @end

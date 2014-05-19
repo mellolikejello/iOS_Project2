@@ -16,4 +16,7 @@
 @property (nonatomic) BOOL isOrdered;
 -(id)initWithDictionary:(NSDictionary*)dict;
 -(float)getSelectedPrice;
+-(float)selectSize:(NSString*)size;
+-(BOOL)hasOptions;
+-(NSString*)getOptions;
 @end

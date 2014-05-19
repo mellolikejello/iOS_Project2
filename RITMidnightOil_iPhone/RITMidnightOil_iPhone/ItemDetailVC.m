@@ -41,6 +41,11 @@
     }else{
         self.description.text = @"";
     }
+    
+    self.tall.tag = 10;
+    self.grande.tag = 20;
+    self.venti.tag = 30;
+    
     if(! self.selectedItem.prices){
         self.tall.hidden = YES;
         [self.grande setTitle:@"regular" forState:UIControlStateNormal];
@@ -49,9 +54,9 @@
     }
     self.price.text = [NSString stringWithFormat:@"$%0.2f", [self.selectedItem getSelectedPrice]];
     [self.cancel addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
-    [self.tall addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
-    [self.grande addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
-    [self.venti addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [self.tall addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [self.grande addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    [self.venti addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,6 +83,25 @@
 
 -(void)cancelClick:(id)sender{
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)selectSize:(UIButton*)sender{
+    NSString *size;
+    switch (sender.tag) {
+        case 10:
+            size = @"tall";
+            break;
+        case 20:
+            size = @"grande";
+            break;
+        case 30:
+            size = @"venti";
+            break;
+        default:
+            break;
+    }
+    float newPrice = [self.selectedItem selectSize:size];
+    self.price.text = [NSString stringWithFormat:@"$%0.2f", newPrice];
 }
 
 @end
