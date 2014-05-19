@@ -27,7 +27,13 @@
 		B930E18B1929273300F16A12 /* OrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B930E18A1929273300F16A12 /* OrderVC.m */; };
 		B930E18E1929B63900F16A12 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B930E18D1929B63900F16A12 /* OrderItem.m */; };
 		B986339C192838ED00867E75 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B986339B192838ED00867E75 /* Order.m */; };
+		B9AF7C78192AA5210072A29F /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AF7C77192AA5210072A29F /* menu.png */; };
+		B9AF7C7E192AA6460072A29F /* order.png in Resources */ = {isa = PBXBuildFile; fileRef = B9AF7C7D192AA6460072A29F /* order.png */; };
 		B9DCC31B1926F7200004D5F3 /* ItemDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B9DCC31A1926F7200004D5F3 /* ItemDetailVC.m */; };
+		B9E0DE49192A528C008C3BE9 /* MidnightOilLogo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9E0DE48192A528C008C3BE9 /* MidnightOilLogo.jpg */; };
+		B9E0DE4E192A5405008C3BE9 /* tallCup.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E0DE4B192A5405008C3BE9 /* tallCup.png */; };
+		B9E0DE4F192A5405008C3BE9 /* grandeCup.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E0DE4C192A5405008C3BE9 /* grandeCup.png */; };
+		B9E0DE50192A5405008C3BE9 /* ventiCup.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E0DE4D192A5405008C3BE9 /* ventiCup.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +77,14 @@
 		B930E18D1929B63900F16A12 /* OrderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderItem.m; sourceTree = "<group>"; };
 		B986339A192838ED00867E75 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		B986339B192838ED00867E75 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		B9AF7C77192AA5210072A29F /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		B9AF7C7D192AA6460072A29F /* order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = order.png; sourceTree = "<group>"; };
 		B9DCC3191926F7200004D5F3 /* ItemDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailVC.h; sourceTree = "<group>"; };
 		B9DCC31A1926F7200004D5F3 /* ItemDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailVC.m; sourceTree = "<group>"; };
+		B9E0DE48192A528C008C3BE9 /* MidnightOilLogo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MidnightOilLogo.jpg; sourceTree = "<group>"; };
+		B9E0DE4B192A5405008C3BE9 /* tallCup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tallCup.png; sourceTree = "<group>"; };
+		B9E0DE4C192A5405008C3BE9 /* grandeCup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grandeCup.png; sourceTree = "<group>"; };
+		B9E0DE4D192A5405008C3BE9 /* ventiCup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ventiCup.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +186,7 @@
 				3F59D944191BBA3500064448 /* AppDelegate.h */,
 				3F59D945191BBA3600064448 /* AppDelegate.m */,
 				3F59D947191BBA3600064448 /* Main.storyboard */,
-				3F59D950191BBA3600064448 /* Images.xcassets */,
+				B9E0DE4A192A5299008C3BE9 /* Images */,
 				3F59D93C191BBA3500064448 /* Supporting Files */,
 			);
 			path = RITMidnightOil_iPhone;
@@ -207,6 +219,20 @@
 				3F59D960191BBA3600064448 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9E0DE4A192A5299008C3BE9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3F59D950191BBA3600064448 /* Images.xcassets */,
+				B9AF7C7D192AA6460072A29F /* order.png */,
+				B9AF7C77192AA5210072A29F /* menu.png */,
+				B9E0DE48192A528C008C3BE9 /* MidnightOilLogo.jpg */,
+				B9E0DE4B192A5405008C3BE9 /* tallCup.png */,
+				B9E0DE4C192A5405008C3BE9 /* grandeCup.png */,
+				B9E0DE4D192A5405008C3BE9 /* ventiCup.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,9 +314,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AF7C78192AA5210072A29F /* menu.png in Resources */,
 				3F59D951191BBA3600064448 /* Images.xcassets in Resources */,
 				3F59D940191BBA3500064448 /* InfoPlist.strings in Resources */,
 				3F3E88BC192009F50098B70C /* midnightOilMenu.js in Resources */,
+				B9E0DE4E192A5405008C3BE9 /* tallCup.png in Resources */,
+				B9E0DE4F192A5405008C3BE9 /* grandeCup.png in Resources */,
+				B9E0DE50192A5405008C3BE9 /* ventiCup.png in Resources */,
+				B9AF7C7E192AA6460072A29F /* order.png in Resources */,
+				B9E0DE49192A528C008C3BE9 /* MidnightOilLogo.jpg in Resources */,
 				3F59D949191BBA3600064448 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

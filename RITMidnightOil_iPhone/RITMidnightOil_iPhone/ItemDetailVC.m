@@ -24,6 +24,7 @@
     float _priceVal;
     NSString *_size;
     NSString *_selectedFlavor;
+    UIColor *ios7BlueColor;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    ios7BlueColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
     self.name.text = self.selectedItem.name;
     if(![self.selectedItem.info isEqual: @"No description"]){
         self.description.text = self.selectedItem.info;
@@ -47,18 +49,6 @@
     if(self.selectedItem.flavors){
         [self.flavorPicker setDelegate:self];
         [self.flavorPicker setDataSource:self];
-        /*if(self.selectedItem.flavors[0][@"green"]){
-            NSMutableArray *teaFlavors = [NSMutableArray array];
-            for(int i = 0; i < [self.selectedItem.flavors count]; i++){
-                for(int j = 0; j < [[self.selectedItem.flavors objectAtIndex:i] count]; j++){
-                    [teaFlavors addObject:[[self.selectedItem.flavors objectAtIndex:i] objectAtIndex:j]];
-                }
-                
-            }
-            self.flavors = teaFlavors;
-        } else {
-            self.flavors = self.selectedItem.flavors;
-        }*/
         self.flavors = self.selectedItem.flavors;
         _selectedFlavor = self.flavors[0];
     } else {
@@ -139,6 +129,7 @@
 }
 
 -(void)selectSize:(UIButton*)sender{
+    [self.tall setSelected:NO];
     self.tall.enabled = YES;
     self.venti.enabled = YES;
     self.grande.enabled = YES;

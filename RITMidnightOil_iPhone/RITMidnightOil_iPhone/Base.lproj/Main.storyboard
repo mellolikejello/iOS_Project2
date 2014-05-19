@@ -59,7 +59,7 @@
                             <outlet property="delegate" destination="vaQ-Hq-ubj" id="HqG-Xb-pRd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Menu" id="eAm-vq-PQ5"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="menu" id="eAm-vq-PQ5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBp-ka-UBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,7 +156,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="View Order" id="dqb-oq-Zal"/>
+                    <tabBarItem key="tabBarItem" title="View Order" image="order" id="dqb-oq-Zal"/>
                     <connections>
                         <outlet property="subtotal" destination="8FO-Wr-BaF" id="PEi-pR-QXg"/>
                         <outlet property="tableView" destination="XZO-l3-BBO" id="Qqv-P7-2EV"/>
@@ -258,29 +258,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Daa-Cj-JMB">
-                                <rect key="frame" x="63" y="292" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="tall" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Daa-Cj-JMB">
+                                <rect key="frame" x="58" y="306" width="56" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="tall">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="tallCup"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVT-vI-ydr">
-                                <rect key="frame" x="136" y="292" width="48" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="grande" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVT-vI-ydr">
+                                <rect key="frame" x="105" y="290" width="105" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="grande">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="grandeCup"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4a-CV-2Na">
-                                <rect key="frame" x="225" y="292" width="33" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="venti" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4a-CV-2Na">
+                                <rect key="frame" x="190" y="274" width="103" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="venti">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="ventiCup"/>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="320" translatesAutoresizingMaskIntoConstraints="NO" id="BEP-au-Qud">
-                                <rect key="frame" x="0.0" y="339" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="348" width="320" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -310,6 +304,13 @@
             <point key="canvasLocation" x="1143" y="-507"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="grandeCup" width="48" height="48"/>
+        <image name="menu" width="32" height="32"/>
+        <image name="order" width="32" height="32"/>
+        <image name="tallCup" width="32" height="32"/>
+        <image name="ventiCup" width="64" height="64"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
