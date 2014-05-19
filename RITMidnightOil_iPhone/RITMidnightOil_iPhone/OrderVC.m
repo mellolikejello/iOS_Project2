@@ -8,8 +8,6 @@
 
 #import "OrderVC.h"
 
-float const kTAX_RATE = 0.08875;
-
 @interface OrderVC ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -36,10 +34,6 @@ float const kTAX_RATE = 0.08875;
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     //[self.tableView setEditing:YES];
-    NSArray *totals = [self getTotals];
-    self.subtotal.text = [totals objectAtIndex:0];
-    self.tax.text = [totals objectAtIndex:1];
-    self.totalPrice.text = [totals objectAtIndex:2];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,14 +56,9 @@ float const kTAX_RATE = 0.08875;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    MenuItem *item = [Order sharedOrder].items[indexPath.row];
-    NSMutableString *name = [[NSMutableString alloc]initWithString:item.name];
-    if(item.hasOptions){
-        [name appendString:[item getOptions]];
-    }
-    cell.textLabel.text = (NSString*)name;
-    //cell.textLabel.text = item.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", [item getSelectedPrice]];
+    OrderItem *item = [Order sharedOrder].items[indexPath.row];
+    cell.textLabel.text = item.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"$%.2f", item.price];
     
     return cell;
     
@@ -77,28 +66,14 @@ float const kTAX_RATE = 0.08875;
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
+    NSArray *totals = [[Order sharedOrder] getTotals];
+    self.subtotal.text = [totals objectAtIndex:0];
+    self.tax.text = [totals objectAtIndex:1];
+    self.totalPrice.text = [totals objectAtIndex:2];
     [super viewWillAppear:animated];
 }
 
--(NSArray *)getTotals{
-    NSMutableArray *totals = [NSMutableArray array];
-    float sum = 0;
-    NSMutableArray *items = [Order sharedOrder].items;
-    for(int i = 0; i<[items count]; i++){
-        sum += [[items objectAtIndex:i] getSelectedPrice];
-    }
-    
-    NSString *sTotal = [NSString stringWithFormat:@"$%.2f", sum];
-    [totals insertObject:sTotal atIndex:0];
-    float taxAmount = sum * kTAX_RATE;
-    sTotal = [NSString stringWithFormat:@"$%.2f", taxAmount];
-    [totals insertObject:sTotal atIndex:1];
-    sum += taxAmount;
-    sTotal = [NSString stringWithFormat:@"$%.2f", sum];
-    [totals insertObject:sTotal atIndex:2];
-    
-    return totals;
-}
+
 
 /*
 #pragma mark - Navigation

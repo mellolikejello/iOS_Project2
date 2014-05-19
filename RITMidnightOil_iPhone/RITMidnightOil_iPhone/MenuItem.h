@@ -13,10 +13,6 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *info;
 @property (nonatomic) NSDictionary *prices;
-@property (nonatomic) BOOL isOrdered;
 -(id)initWithDictionary:(NSDictionary*)dict;
--(float)getSelectedPrice;
 -(float)selectSize:(NSString*)size;
--(BOOL)hasOptions;
--(NSString*)getOptions;
 @end

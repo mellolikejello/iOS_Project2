@@ -46,13 +46,17 @@
     self.grande.tag = 20;
     self.venti.tag = 30;
     
-    if(! self.selectedItem.prices){
+    if(self.selectedItem.prices[@"regular"]){
         self.tall.hidden = YES;
         [self.grande setTitle:@"regular" forState:UIControlStateNormal];
         self.grande.enabled = NO;
         self.venti.hidden = YES;
+        _priceVal = [self.selectedItem.prices[@"regular"] floatValue];
+    } else {
+        self.grande.enabled = NO;
+        _priceVal = [self.selectedItem.prices[@"grande"] floatValue];
     }
-    self.price.text = [NSString stringWithFormat:@"$%0.2f", [self.selectedItem getSelectedPrice]];
+    self.price.text = [NSString stringWithFormat:@"$%0.2f", _priceVal];
     [self.cancel addTarget:self action:@selector(cancelClick:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
     [self.tall addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
     [self.grande addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
@@ -76,8 +80,10 @@
 }
 */
 - (IBAction)order:(id)sender {
-    self.selectedItem.isOrdered = true;
-    [[Order sharedOrder]addItem:self.selectedItem];
+    //self.selectedItem.isOrdered = true;
+    OrderItem *orderItem = [[OrderItem alloc] initWithMenuItem: self.selectedItem];
+    orderItem.price = _priceVal;
+    [[Order sharedOrder] addItem:orderItem];
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -87,21 +93,27 @@
 
 -(void)selectSize:(UIButton*)sender{
     NSString *size;
+    self.tall.enabled = YES;
+    self.venti.enabled = YES;
+    self.grande.enabled = YES;
     switch (sender.tag) {
         case 10:
             size = @"tall";
+            self.tall.enabled = NO;
             break;
         case 20:
             size = @"grande";
+            self.grande.enabled = NO;
             break;
         case 30:
             size = @"venti";
+            self.venti.enabled = NO;
             break;
         default:
             break;
     }
-    float newPrice = [self.selectedItem selectSize:size];
-    self.price.text = [NSString stringWithFormat:@"$%0.2f", newPrice];
+    _priceVal = [self.selectedItem selectSize:size];
+    self.price.text = [NSString stringWithFormat:@"$%0.2f", _priceVal];
 }
 
 @end

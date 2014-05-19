@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuItem.h"
+#import "OrderItem.h"
 #import "Order.h"
 
 @interface ItemDetailVC : UIViewController

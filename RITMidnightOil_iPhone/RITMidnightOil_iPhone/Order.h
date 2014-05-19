@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MenuItem.h"
+#import "OrderItem.h"
 
 @interface Order : NSObject
 @property (nonatomic) NSMutableArray *items;
 
 -(id)init;
--(void)addItem:(MenuItem*)item;
--(NSString*)getTotal;
+-(void)addItem:(OrderItem*)item;
+-(NSArray *)getTotals;
 +(instancetype)sharedOrder;
 @end

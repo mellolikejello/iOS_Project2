@@ -8,6 +8,8 @@
 
 #import "Order.h"
 
+float const kTAX_RATE = 0.08875;
+
 @implementation Order
 
 +(id)sharedOrder{
@@ -33,13 +35,27 @@
     return self;
 }
 
--(void)addItem:(MenuItem*)item{
+-(void)addItem:(OrderItem*)item{
     [self.items addObject:item];
 }
 
--(NSString*)getTotal{
-    // sum total in _items
-    return @"$0.00";
+-(NSArray *)getTotals{
+    NSMutableArray *totals = [NSMutableArray array];
+    float sum = 0;
+    for(int i = 0; i<[self.items count]; i++){
+        sum += [[self.items objectAtIndex:i] price];
+    }
+    
+    NSString *sTotal = [NSString stringWithFormat:@"$%.2f", sum];
+    [totals insertObject:sTotal atIndex:0];
+    float taxAmount = sum * kTAX_RATE;
+    sTotal = [NSString stringWithFormat:@"$%.2f", taxAmount];
+    [totals insertObject:sTotal atIndex:1];
+    sum += taxAmount;
+    sTotal = [NSString stringWithFormat:@"$%.2f", sum];
+    [totals insertObject:sTotal atIndex:2];
+    
+    return totals;
 }
 
 @end

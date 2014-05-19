@@ -6,11 +6,15 @@
 			{
 			"name":"Carib-bean",
 			"info":"Coconut + Caramel Iced Latte",
-			"price":4.79},
+			"prices":{
+				"regular":4.79}
+			},
 			{
 			"name":"Soy Dream",
 			"info":"Soymilk + Tangerine + OJ + Vanilla Pudding Mix, Blended",
-			"price":4.79},
+			"prices":{
+				"regular":4.79}
+			},
 			{
 			"name":"Pina Paradise",
 			"info":"Vanilla Bean Frappuccino + Coconut Pineapple",
@@ -28,14 +32,16 @@
             "flavors":[
 			"Coffee","Caramel","Mocha","Vanilla Bean","Strawberries & Creme"
             ],
-            "price": 4.79
+            "prices":{
+            	"regular": 4.79}
             },
             {
             "name":"Frozen Drinks",
             "flavors":[
 			"Cookies & Creme", "Grasshopper", "Frozen Hot Chocolate"
             ],
-            "price":4.79
+            "prices":{
+            	"regular":4.79}
         	}
         ]
 		},
@@ -138,7 +144,8 @@
 				"venti":4.35}
 			},
 			{"name":"Double Espresso",
-			"price":1.99
+			"prices":{
+				"regular":1.99}
 			}
 		]
 		},
@@ -223,47 +230,58 @@
 		"items":[
 			{"name":"Croissant Sandwich",
 			"info": "with Sausage, Egg + American Cheese",
-			"price": 3.39
+			"prices":{
+				"regular": 3.39}
 			},
 			{"name":"Bagel Sandwich",
 			"info": "with Sausage, Egg + American Cheese",
-			"price": 3.39
+			"prices":{
+				"regular": 3.39}
 			},
 			{"name":"Muffin Sandwich",
 			"info": "with Ham, Egg + American Cheese",
-			"price": 3.39
+			"prices":{
+				"regular": 3.39}
 			},
 			{"name":"Biscuit Sandwich",
 			"info": "with Bacon, Egg + American Cheese",
-			"price": 3.39
+			"prices":{
+				"regular": 3.39}
 			},
 			{"name":"Kaiser Roll Sandwich",
 			"info": "with Chicken, Sausage, Egg + American Cheese",
-			"price": 3.39
+			"prices":{
+				"regular": 3.39}
 			},
 			{"name":"Steak Bagel Sandwich",
 			"info": "with Steak, Egg + American Cheese",
-			"price": 4.39
+			"prices":{
+				"regular": 4.39}
 			},
 			{"name":"Vegan Burrito",
 			"info": "Scrambled Tofu with Tempeh Bacon, Peppers, Onions, Tomato + Vegan Cheese on a Flour Tortilla",
-			"price": 4.39
+			"prices":{
+				"regular": 4.39}
 			},
 			{"name":"Prosciutto Croissant",
 			"info": "with Cranberry Tarragon Goat Cheese, Lettuce + Prosciutto",
-			"price": 5.49
+			"prices":{
+				"regular": 5.49}
 			},
 			{"name":"Margarita",
 			"info": "Baguette with Mozzerella Cheese, Fresh Basil, Tomato + Balsamic Vinegar",
-			"price": 5.49
+			"prices":{
+				"regular": 5.49}
 			},
 			{"name":"Scone Sandwich",
 			"info": "Cheddar Cheese Scone with Cheddar Cheese, Egg + Chicken Sausage",
-			"price": 4.39
+			"prices":{
+				"regular": 4.39}
 			},
 			{"name":"Chorizo Sandwich",
 			"info": "Kaiser Roll with Chorizo, Pepperjack, Cheese + Egg",
-			"price": 4.74
+			"prices":{
+				"regular": 4.74}
 			}
 		]
 		}			
