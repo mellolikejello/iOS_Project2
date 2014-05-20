@@ -12,9 +12,7 @@
 
 @end
 
-@implementation FavoritesVC{
-   // NSInteger *tempInt;
-}
+@implementation FavoritesVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

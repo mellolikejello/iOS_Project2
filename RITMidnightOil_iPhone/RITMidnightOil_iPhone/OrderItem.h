@@ -11,6 +11,7 @@
 
 @interface OrderItem : NSObject
 
+// keep reference to menuItem generated from
 @property(nonatomic) MenuItem *menuItem;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic) float price;

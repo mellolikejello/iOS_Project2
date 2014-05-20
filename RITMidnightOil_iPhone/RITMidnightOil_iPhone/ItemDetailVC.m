@@ -23,10 +23,10 @@
 @end
 
 @implementation ItemDetailVC{
+    // keep track of current selections
     float _priceVal;
     NSString *_size;
     NSString *_selectedFlavor;
-    UIColor *ios7BlueColor;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,8 +41,8 @@
 {
     
     [super viewDidLoad];
-    ios7BlueColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
     self.name.text = self.selectedItem.name;
+    // hide decription if none
     if(![self.selectedItem.info isEqual: @"No description"]){
         self.description.text = self.selectedItem.info;
     }else{
@@ -55,6 +55,7 @@
         self.flavors = self.selectedItem.flavors;
         _selectedFlavor = self.flavors[0];
     } else {
+        // shift location of buttons to make up for flavorPicker space
         self.flavorPicker.hidden = YES;
         CGRect tallFrame = self.tall.frame;
         CGRect grandeFrame = self.grande.frame;
@@ -68,6 +69,7 @@
         
     }
     
+    // identifiers when buttons are clicked
     self.tall.tag = 10;
     self.grande.tag = 20;
     self.venti.tag = 30;
@@ -135,6 +137,7 @@
     _selectedFlavor = self.flavors[row];
 }
 
+// add item (with selected options) to order
 - (IBAction)order:(id)sender {
     OrderItem *orderItem = [[OrderItem alloc] initWithMenuItem: self.selectedItem];
     orderItem.price = _priceVal;
@@ -146,10 +149,12 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
+// cancel item
 -(void)cancelClick:(id)sender{
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
+// select an item size
 -(void)selectSize:(UIButton*)sender{
     [self.tall setSelected:NO];
     self.tall.enabled = YES;

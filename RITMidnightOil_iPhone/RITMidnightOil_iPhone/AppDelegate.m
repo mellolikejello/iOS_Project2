@@ -14,6 +14,7 @@ NSString * const kMENU_DATA = @"midnightOilMenu";
 
 @implementation AppDelegate
 
+// parse menu data
 -(void)loadData{
     NSDictionary *jsonDict;
     NSString *path = [[NSBundle mainBundle]pathForResource:kMENU_DATA ofType:@"js"];
@@ -35,8 +36,6 @@ NSString * const kMENU_DATA = @"midnightOilMenu";
             
             for (int i = 0; i < items.count; i++) {
                 if([items objectAtIndex:i][@"category"]){
-                    // we have a header
-                    //NSLog(@"%@",items[i][@"category"]);
                     [allCategories addObject:items[i][@"category"]];
                     NSMutableArray *organizedItems = [NSMutableArray array];
                     

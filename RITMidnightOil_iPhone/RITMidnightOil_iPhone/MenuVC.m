@@ -15,7 +15,6 @@
 @end
 
 @implementation MenuVC{
-//#warning working on collapsible items here
     NSMutableArray *collapseBools;
 }
 
@@ -81,10 +80,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    //return 3;
-    //NSLog(@"%d",[Menu sharedMenu].allCategories.count);
     return [Menu sharedMenu].allCategories.count;
 }
 
@@ -133,7 +128,6 @@
 //Author: Julienne Ablay
 //Summary: Called when a user taps the button at the header. This collapses/expands the chosen section
 - (void)headerTapped:(UIButton*)sender {
-//#warning working on collapsible items when user taps button on header
     
     if ([collapseBools[sender.tag]boolValue] == NO)
         collapseBools[sender.tag] = [NSNumber numberWithBool:YES];
@@ -151,11 +145,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    //return [[Menu sharedMenu].organizedItems objectAtIndex:section].count;
-    //NSLog(@"%d",[[[Menu sharedMenu].organizedItems objectAtIndex:section] count]);
-    //return [Menu sharedMenu].allItems.count;
     NSLog(@"%@",collapseBools[section]);
     
     if ([collapseBools[section] boolValue] == 0) {
@@ -218,7 +207,7 @@
 
 #pragma mark - Navigation
 
-// In a story board-based application, you will often want to do a little preparation before navigation
+// Send details for selected item
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ItemDetailVC *destinationController = (ItemDetailVC*)[segue destinationViewController];

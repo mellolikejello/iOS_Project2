@@ -8,6 +8,7 @@
 
 #import "Order.h"
 
+// NY tax rate
 float const kTAX_RATE = 0.08875;
 
 @implementation Order
@@ -35,10 +36,14 @@ float const kTAX_RATE = 0.08875;
     return self;
 }
 
+// add an item to the order
 -(void)addItem:(OrderItem*)item{
     [self.items addObject:item];
 }
 
+// get total price for order
+// returns array of length 3
+// [subtotal, tax, total]
 -(NSArray *)getTotals{
     NSMutableArray *totals = [NSMutableArray array];
     float sum = 0;
@@ -58,6 +63,7 @@ float const kTAX_RATE = 0.08875;
     return totals;
 }
 
+// remove all ordered items
 -(void)clearItems{
     [self.items removeAllObjects];
 }

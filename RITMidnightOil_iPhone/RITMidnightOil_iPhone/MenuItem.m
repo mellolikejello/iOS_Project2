@@ -26,6 +26,7 @@
     return self;
 }
 
+// return price of selected size
 -(float)selectSize:(NSString*)size{
     if(self.prices[size]){
         return [self.prices[size] floatValue];

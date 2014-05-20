@@ -5,6 +5,7 @@
 //  Created by Melody Kelly on 5/7/14.
 //  Copyright (c) 2014 Student. All rights reserved.
 //
+// Singleton - contains all menu data
 
 #import <Foundation/Foundation.h>
 

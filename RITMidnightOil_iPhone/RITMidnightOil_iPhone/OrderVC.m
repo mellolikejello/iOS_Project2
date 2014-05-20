@@ -35,7 +35,6 @@
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
     [self.clear addTarget:self action:@selector(clearOrder:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
-    //[self.tableView setEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,6 +54,8 @@
     return [Order sharedOrder].items.count;
 }
 
+// display ordereditem details in a readable, concise manner
+// include flavor and size information
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrderCell" forIndexPath:indexPath];
@@ -79,10 +80,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"selected item at %d", indexPath.row);
     [self.tableView setEditing:YES];
 }
 
+// delete item from order
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(editingStyle == UITableViewCellEditingStyleDelete){
         [[Order sharedOrder].items removeObjectAtIndex:indexPath.row];
@@ -99,6 +100,7 @@
     [super viewWillAppear:animated];
 }
 
+// update displayed prices
 -(void)updateTotals{
     NSArray *totals = [[Order sharedOrder] getTotals];
     self.subtotal.text = [totals objectAtIndex:0];
@@ -106,6 +108,7 @@
     self.totalPrice.text = [totals objectAtIndex:2];
 }
 
+// remove all items from order
 -(void)clearOrder:(id)sender{
     [[Order sharedOrder] clearItems];
     [self.tableView reloadData];
