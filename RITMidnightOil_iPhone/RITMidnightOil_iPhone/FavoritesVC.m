@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad
 {
+    //Adds an observer for if the favorite button was tapped or a favorite was added/deleted
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(ReloadData)
                                                  name:@"Update FavoriteVC"
@@ -45,6 +46,10 @@
 
 }
 
+//Function: ReloadData
+//Author: Julienne Ablay
+//Summary: This is the function called through NSNotificationCenter that will reload the
+//favorites table data if favorites have changed before the view was loaded
 -(void)ReloadData{
     NSLog(@"are you reloading data?");
     [self.tableView reloadData];
@@ -60,35 +65,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-/*#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    //return [Menu sharedMenu].allCategories.count;
-    int tempInt = 0;
-    BOOL hasFaves = 0;
-    //checks if any section has isFavorite == true, then adds it to an int to return
-    for (int i=0; i<[Menu sharedMenu].allCategories.count; i++) {
-        NSMutableArray *tempArray = [[Menu sharedMenu].organizedItems objectAtIndex:i];
-    
-        for (int j=0; j<tempArray.count; j++) {
-            MenuItem *tempItem = [[Menu sharedMenu].organizedItems[i] objectAtIndex:j];
-            
-            if (tempItem.isFavorite == YES) {
-            hasFaves++;
-            
-            //break;
-            }
-        }
-        
-        if (hasFaves > 0) {
-            tempInt++;
-            hasFaves = 0;
-        }
-    }
-    
-    NSLog(@"number of sections = %d",tempInt);
-    return tempInt;
-    //return*/
-    
     return 1;
 }
 
@@ -96,9 +72,9 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    NSLog(@"this is called");
+    //NSLog(@"this is called");
     
-    //it will only return what has 1 on the sharedMenu.favorites list (what's favorited?)
+    //it will only return what has a bool of TRUE in 'isFavorites' on the sharedMenu.allItems list (what's favorited?)
     
     int tempInt = 0;
     
@@ -108,6 +84,7 @@
         for (int j=0; j<tempArray.count; j++) {
             MenuItem *tempItem = [[Menu sharedMenu].organizedItems[i] objectAtIndex:j];
             
+            //if this item's isFavorite property is true, a row is added to the section
             if (tempItem.isFavorite) {
                 tempInt++;
                 NSLog(@"true");
@@ -128,6 +105,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    // Similar to numberOfRowsInSection, it checks the allItems to see if an item's isFavorite property
+    // is true, and then shows the name in the cell
     
     NSMutableArray *tempArray = [NSMutableArray array];
   
@@ -179,26 +158,21 @@
         NSMutableArray *favesArray = [NSMutableArray array];
         
         for (int i=0;i<[[Menu sharedMenu].allItems count]; i++) {
-            //NSMutableArray *tempArray = [[Menu sharedMenu].organizedItems objectAtIndex:i];
-            
-            //for (int j=0; j<tempArray.count; j++) {
+
             MenuItem *tempItem = [[Menu sharedMenu].allItems objectAtIndex:i];
             
             if (tempItem.isFavorite) {
                 [favesArray addObject:tempItem];
             }
-            
-            //}
+
         }
         
         
         MenuItem *deletedItem = [favesArray objectAtIndex:indexPath.row];
-        //deletedItem.isFavorite = NO;
+
         
         for (int i=0;i<[[Menu sharedMenu].allItems count]; i++) {
-            //NSMutableArray *tempArray = [[Menu sharedMenu].organizedItems objectAtIndex:i];
-            
-            //for (int j=0; j<tempArray.count; j++) {
+
             MenuItem *tempItem = [[Menu sharedMenu].allItems objectAtIndex:i];
             
             if (tempItem.name == deletedItem.name) {
@@ -206,8 +180,7 @@
                 [self.tableView reloadData];
                 //NSLog(@"deleting %@",tempItem.name);
             }
-            
-            //}
+
         }
     }
 
@@ -234,6 +207,7 @@
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
+// This sends the user to the itemDetailVC if they have tapped on a cell
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
@@ -259,10 +233,6 @@
     destinationController.selectedItem = item;
 }
 
-//-(void)receivedFavoriteChange{
-    //nsuserdefaults once again
-//}
 
- 
 
 @end
