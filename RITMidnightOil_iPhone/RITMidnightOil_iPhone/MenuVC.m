@@ -31,6 +31,29 @@
 
 - (void)viewDidLoad
 {
+    //NSUSERDEFAULTS - if a user has saved data...(this must be called before the view loads
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    NSArray *objectArray = [prefs arrayForKey:@"favoritesData"];
+    if(objectArray != nil){
+        NSLog(@"Object is still here!");
+        NSArray *favesDefaults = [prefs objectForKey:@"favoritesData"];
+        
+        
+        //Go through this array and the array of MenuItems
+        
+        for (int i=0;i<[[Menu sharedMenu].allItems count]; i++) {
+            
+            MenuItem *tempItem = [[Menu sharedMenu].allItems objectAtIndex:i];
+            
+            tempItem.isFavorite = [favesDefaults[i] boolValue];
+            
+        }
+    } else {
+        NSLog(@"no user defaults found");
+    }
+    
     [super viewDidLoad];
 
     collapseBools = [NSMutableArray array];
@@ -204,8 +227,30 @@
 }
 
 - (void)receivedFavoriteChange{
-    NSLog(@"favorite has changed!");
     //use this to save to nsuserdefaults whenever someone changes this
+    
+    //first create an array of BOOLs from allItems
+    //0 == not favorited
+    //1 == favorited
+    
+    NSMutableArray *favesArray = [NSMutableArray array];
+    
+    for (int i=0;i<[[Menu sharedMenu].allItems count]; i++) {
+        MenuItem *tempItem = [[Menu sharedMenu].allItems objectAtIndex:i];
+        
+        if (tempItem.isFavorite) {
+            [favesArray addObject:[NSNumber numberWithBool:YES]];
+        } else {
+            [favesArray addObject:[NSNumber numberWithBool:NO]];
+        }
+    }
+    
+    //now saving the favesArray to nsuserdefaults
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:favesArray forKey:@"favoritesData"];
+    [userDefaults synchronize];
+    
+    NSLog(@"data saved");
 }
 
 

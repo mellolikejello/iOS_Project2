@@ -39,6 +39,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     ios7BlueColor = [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0];
     self.name.text = self.selectedItem.name;
@@ -64,6 +65,7 @@
         self.tall.frame = tallFrame;
         self.grande.frame = grandeFrame;
         self.venti.frame = ventiFrame;
+        
     }
     
     self.tall.tag = 10;
