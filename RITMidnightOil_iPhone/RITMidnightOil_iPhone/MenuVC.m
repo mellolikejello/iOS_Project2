@@ -15,7 +15,7 @@
 @end
 
 @implementation MenuVC{
-#warning working on collapsible items here
+//#warning working on collapsible items here
     NSMutableArray *collapseBools;
 }
 
@@ -103,7 +103,7 @@
 }
 
 - (void)headerTapped:(UIButton*)sender {
-#warning working on collapsible items when user taps button on header
+//#warning working on collapsible items when user taps button on header
     
     if ([collapseBools[sender.tag]boolValue] == NO)
         collapseBools[sender.tag] = [NSNumber numberWithBool:YES];
@@ -196,6 +196,16 @@
     NSArray *itemArray = [Menu sharedMenu].organizedItems[indexPath.section];
     MenuItem *item = itemArray[indexPath.row];
     destinationController.selectedItem = item;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedFavoriteChange)
+                                                 name:@"Changed favorite"
+                                               object:nil];
+}
+
+- (void)receivedFavoriteChange{
+    NSLog(@"favorite has changed!");
+    //use this to save to nsuserdefaults whenever someone changes this
 }
 
 

@@ -9,6 +9,8 @@
 #import "ItemDetailVC.h"
 
 @interface ItemDetailVC ()
+- (IBAction)changeFavorite:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UITextView *description;
 @property (weak, nonatomic) IBOutlet UIButton *tall;
@@ -87,6 +89,14 @@
     [self.tall addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
     [self.grande addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
     [self.venti addTarget:self action:@selector(selectSize:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
+    
+    //update favorite button
+    if ([self selectedItem].isFavorite) {
+        [[self favoriteButton] setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+    }
+    else {
+        [[self favoriteButton] setImage:[UIImage imageNamed:@"nofavorite.png"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -163,4 +173,17 @@
     self.price.text = [NSString stringWithFormat:@"$%0.2f", _priceVal];
 }
 
+- (IBAction)changeFavorite:(id)sender {
+    [self selectedItem].isFavorite = ![self selectedItem].isFavorite;
+    NSLog(@"I now equal %d",[self selectedItem].isFavorite);
+    
+    if ([self selectedItem].isFavorite) {
+        [[self favoriteButton] setImage:[UIImage imageNamed:@"favorite.png"] forState:UIControlStateNormal];
+    }
+    else {
+        [[self favoriteButton] setImage:[UIImage imageNamed:@"nofavorite.png"] forState:UIControlStateNormal];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Changed favorite" object:self];
+}
 @end

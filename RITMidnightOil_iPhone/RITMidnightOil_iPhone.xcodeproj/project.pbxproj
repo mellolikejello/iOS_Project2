@@ -24,6 +24,9 @@
 		3F59D95A191BBA3600064448 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F59D939191BBA3300064448 /* UIKit.framework */; };
 		3F59D962191BBA3600064448 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F59D960191BBA3600064448 /* InfoPlist.strings */; };
 		3F59D964191BBA3700064448 /* RITMidnightOil_iPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F59D963191BBA3700064448 /* RITMidnightOil_iPhoneTests.m */; };
+		3FC0AFE1192AD512003FEC98 /* FavoritesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0AFE0192AD512003FEC98 /* FavoritesVC.m */; };
+		3FC0AFE4192AD57E003FEC98 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC0AFE2192AD57E003FEC98 /* favorite.png */; };
+		3FC0AFE5192AD57E003FEC98 /* nofavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FC0AFE3192AD57E003FEC98 /* nofavorite.png */; };
 		B930E18B1929273300F16A12 /* OrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B930E18A1929273300F16A12 /* OrderVC.m */; };
 		B930E18E1929B63900F16A12 /* OrderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B930E18D1929B63900F16A12 /* OrderItem.m */; };
 		B986339C192838ED00867E75 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = B986339B192838ED00867E75 /* Order.m */; };
@@ -72,6 +75,10 @@
 		3F59D95F191BBA3600064448 /* RITMidnightOil_iPhoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RITMidnightOil_iPhoneTests-Info.plist"; sourceTree = "<group>"; };
 		3F59D961191BBA3600064448 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3F59D963191BBA3700064448 /* RITMidnightOil_iPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RITMidnightOil_iPhoneTests.m; sourceTree = "<group>"; };
+		3FC0AFDF192AD512003FEC98 /* FavoritesVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesVC.h; sourceTree = "<group>"; };
+		3FC0AFE0192AD512003FEC98 /* FavoritesVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesVC.m; sourceTree = "<group>"; };
+		3FC0AFE2192AD57E003FEC98 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
+		3FC0AFE3192AD57E003FEC98 /* nofavorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nofavorite.png; sourceTree = "<group>"; };
 		B930E1891929273300F16A12 /* OrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderVC.h; sourceTree = "<group>"; };
 		B930E18A1929273300F16A12 /* OrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderVC.m; sourceTree = "<group>"; };
 		B930E18C1929B63900F16A12 /* OrderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderItem.h; sourceTree = "<group>"; };
@@ -116,6 +123,8 @@
 		3F3E88B8192009B90098B70C /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				3FC0AFDF192AD512003FEC98 /* FavoritesVC.h */,
+				3FC0AFE0192AD512003FEC98 /* FavoritesVC.m */,
 				B9DCC3191926F7200004D5F3 /* ItemDetailVC.h */,
 				B9DCC31A1926F7200004D5F3 /* ItemDetailVC.m */,
 				3F3E88C3192011950098B70C /* MenuVC.h */,
@@ -226,6 +235,8 @@
 		B9E0DE4A192A5299008C3BE9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3FC0AFE2192AD57E003FEC98 /* favorite.png */,
+				3FC0AFE3192AD57E003FEC98 /* nofavorite.png */,
 				3F59D950191BBA3600064448 /* Images.xcassets */,
 				B9AF7C7F192AA8C60072A29F /* midnightOil_icon.png */,
 				B9AF7C7D192AA6460072A29F /* order.png */,
@@ -323,7 +334,9 @@
 				3F59D940191BBA3500064448 /* InfoPlist.strings in Resources */,
 				3F3E88BC192009F50098B70C /* midnightOilMenu.js in Resources */,
 				B9E0DE4E192A5405008C3BE9 /* tallCup.png in Resources */,
+				3FC0AFE5192AD57E003FEC98 /* nofavorite.png in Resources */,
 				B9E0DE4F192A5405008C3BE9 /* grandeCup.png in Resources */,
+				3FC0AFE4192AD57E003FEC98 /* favorite.png in Resources */,
 				B9E0DE50192A5405008C3BE9 /* ventiCup.png in Resources */,
 				B9AF7C7E192AA6460072A29F /* order.png in Resources */,
 				B9E0DE49192A528C008C3BE9 /* MidnightOilLogo.jpg in Resources */,
@@ -350,6 +363,7 @@
 				B930E18B1929273300F16A12 /* OrderVC.m in Sources */,
 				3F3E88C119200A300098B70C /* Menu.m in Sources */,
 				B930E18E1929B63900F16A12 /* OrderItem.m in Sources */,
+				3FC0AFE1192AD512003FEC98 /* FavoritesVC.m in Sources */,
 				B9DCC31B1926F7200004D5F3 /* ItemDetailVC.m in Sources */,
 				3F3E88C219200A300098B70C /* MenuItem.m in Sources */,
 				B986339C192838ED00867E75 /* Order.m in Sources */,

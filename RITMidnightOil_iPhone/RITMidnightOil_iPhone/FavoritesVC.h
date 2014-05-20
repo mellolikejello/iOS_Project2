@@ -1,8 +1,8 @@
 //
-//  MenuVC.h
+//  FavoritesVC.h
 //  RITMidnightOil_iPhone
 //
-//  Created by Student on 5/11/14.
+//  Created by Student on 5/18/14.
 //  Copyright (c) 2014 Student. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 #import "Menu.h"
 #import "ItemDetailVC.h"
 
-@interface MenuVC : UITableViewController
+@interface FavoritesVC : UITableViewController
 
 @end

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="567" y="543"/>
         </scene>
-        <!--Table View Controller-->
+        <!--FavoritesVC-->
         <scene sceneID="yTw-ZW-AHH">
             <objects>
-                <tableViewController id="LTP-jF-qPS" sceneMemberID="viewController">
+                <tableViewController id="LTP-jF-qPS" customClass="FavoritesVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="osk-nc-lAk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,13 +275,23 @@
                                 <rect key="frame" x="0.0" y="82" width="320" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="23Q-H1-uhl">
+                                <rect key="frame" x="49" y="51" width="35" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="nofavorite.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeFavorite:" destination="cyL-eC-5ju" eventType="touchUpInside" id="X9A-kW-fcv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <size key="freeformSize" width="200" height="300"/>
                     <connections>
                         <outlet property="cancel" destination="QRR-MW-ze3" id="sWp-zr-HMt"/>
                         <outlet property="description" destination="tfo-gl-tjh" id="arP-9Z-oe0"/>
+                        <outlet property="favoriteButton" destination="23Q-H1-uhl" id="XAU-T5-I2F"/>
                         <outlet property="flavorPicker" destination="YKq-oX-vbL" id="At6-xR-Pjj"/>
                         <outlet property="grande" destination="MVT-vI-ydr" id="S6L-Cy-dqu"/>
                         <outlet property="name" destination="b77-62-Add" id="Mo5-uV-9CP"/>
@@ -299,6 +309,7 @@
     <resources>
         <image name="grandeCup" width="48" height="48"/>
         <image name="menu" width="32" height="32"/>
+        <image name="nofavorite.png" width="217" height="206"/>
         <image name="order" width="32" height="32"/>
         <image name="tallCup" width="32" height="32"/>
         <image name="ventiCup" width="64" height="64"/>
