@@ -94,7 +94,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     NSLog(@"this is called");
     
@@ -230,16 +230,39 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    
+    NSMutableArray *favesArray = [NSMutableArray array];
+    
+    for (int i=0;i<[[Menu sharedMenu].allItems count]; i++) {
+        //NSMutableArray *tempArray = [[Menu sharedMenu].organizedItems objectAtIndex:i];
+        
+        //for (int j=0; j<tempArray.count; j++) {
+        MenuItem *tempItem = [[Menu sharedMenu].allItems objectAtIndex:i];
+        
+        if (tempItem.isFavorite) {
+            [favesArray addObject:tempItem];
+        }
+        
+        //}
+    }
+    
+    ItemDetailVC *destinationController = (ItemDetailVC*)[segue destinationViewController];
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    MenuItem *item = favesArray[indexPath.row];
+    destinationController.selectedItem = item;
 }
 
- */
+//-(void)receivedFavoriteChange{
+    //nsuserdefaults once again
+//}
+
+ 
 
 @end

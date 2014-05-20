@@ -185,5 +185,6 @@
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Changed favorite" object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Update FavoriteVC" object:self];
 }
 @end
