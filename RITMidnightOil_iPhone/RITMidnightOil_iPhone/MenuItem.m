@@ -13,6 +13,7 @@
 -(id)initWithDictionary:(NSDictionary *)dict{
     self.name = dict[@"name"] ? dict[@"name"]: @"Unnamed item";
     self.info = dict[@"info"] ? dict[@"info"]: @"No description";
+    self.isFavorite = false;
     if(dict[@"prices"]){
         self.prices = dict[@"prices"];
     }
