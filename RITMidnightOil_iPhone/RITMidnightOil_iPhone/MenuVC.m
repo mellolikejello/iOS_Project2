@@ -31,8 +31,11 @@
 
 - (void)viewDidLoad
 {
-    //NSUSERDEFAULTS - if a user has saved data...(this must be called before the view loads
-    
+    //NSUSERDEFAULTS - if a user has saved data...(this must be called before the view loads)
+    //Author: Julienne Ablay
+    //Summary: The app looks for 'favoritesData' in its userdefaults.if there is none, nothing happens
+    //          If there is stored nsuserdefaults, the NSArray of booleans stored will overwrite
+    //          the isFavorite booleans in each MenuItem
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     
     NSArray *objectArray = [prefs arrayForKey:@"favoritesData"];
@@ -56,6 +59,7 @@
     
     [super viewDidLoad];
 
+    // these booleans check if a section is collapsed or not
     collapseBools = [NSMutableArray array];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -91,7 +95,8 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    //Headerview
+    //Author: Julienne Ablay
+    //this creates a custom header with a button to collapse/expand different sections
     UIView *myView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 300.0, 30.0)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UILabel *label = [UILabel new];
@@ -125,6 +130,8 @@
     return myView;
 }
 
+//Author: Julienne Ablay
+//Summary: Called when a user taps the button at the header. This collapses/expands the chosen section
 - (void)headerTapped:(UIButton*)sender {
 //#warning working on collapsible items when user taps button on header
     
@@ -226,6 +233,8 @@
                                                object:nil];
 }
 
+//Author: Julienne Ablay
+//Summary: sets up nsuserdefaults to save favorites data whenever a user adds/deletes favorites
 - (void)receivedFavoriteChange{
     //use this to save to nsuserdefaults whenever someone changes this
     
