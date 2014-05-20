@@ -197,6 +197,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="cyL-eC-5ju" kind="modal" id="2vm-Wt-djw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -208,7 +211,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2a-ju-9yC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1355" y="180"/>
+            <point key="canvasLocation" x="1211" y="356"/>
         </scene>
         <!--Item DetailVC-->
         <scene sceneID="J4E-Qs-Vq5">
@@ -319,4 +322,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="2vm-Wt-djw"/>
+    </inferredMetricsTieBreakers>
 </document>
