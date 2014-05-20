@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *subtotal;
 @property (weak, nonatomic) IBOutlet UILabel *totalPrice;
 @property (weak, nonatomic) IBOutlet UILabel *tax;
+@property (weak, nonatomic) IBOutlet UIButton *clear;
 
 @end
 
@@ -33,6 +34,7 @@
     [super viewDidLoad];
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
+    [self.clear addTarget:self action:@selector(clearOrder:) forControlEvents:(UIControlEvents)UIControlEventTouchDown];
     //[self.tableView setEditing:YES];
 }
 
@@ -86,20 +88,29 @@
         [[Order sharedOrder].items removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
         [self.tableView setEditing:NO];
+        [self updateTotals];
         
     }
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
+    [self updateTotals];
+    [super viewWillAppear:animated];
+}
+
+-(void)updateTotals{
     NSArray *totals = [[Order sharedOrder] getTotals];
     self.subtotal.text = [totals objectAtIndex:0];
     self.tax.text = [totals objectAtIndex:1];
     self.totalPrice.text = [totals objectAtIndex:2];
-    [super viewWillAppear:animated];
 }
 
-
+-(void)clearOrder:(id)sender{
+    [[Order sharedOrder] clearItems];
+    [self.tableView reloadData];
+    [self updateTotals];
+}
 
 /*
 #pragma mark - Navigation

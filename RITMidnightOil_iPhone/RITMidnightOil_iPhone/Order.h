@@ -15,5 +15,6 @@
 -(id)init;
 -(void)addItem:(OrderItem*)item;
 -(NSArray *)getTotals;
+-(void)clearItems;
 +(instancetype)sharedOrder;
 @end

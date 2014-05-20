@@ -58,4 +58,8 @@ float const kTAX_RATE = 0.08875;
     return totals;
 }
 
+-(void)clearItems{
+    [self.items removeAllObjects];
+}
+
 @end
