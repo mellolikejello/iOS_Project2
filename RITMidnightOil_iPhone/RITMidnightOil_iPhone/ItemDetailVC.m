@@ -175,6 +175,16 @@
     self.price.text = [NSString stringWithFormat:@"$%0.2f", _priceVal];
 }
 
+//
+//
+// Function name: changeFavorite
+// author: Julienne Ablay
+// Summary: If the user clicks on the favorite button, the icon will change its image depending
+//          on its state (favorited/unfavorited). It changes the MenuItem's isFavorite property to its opposite
+//          and then sends an NSNotification to either the MenuVC or FavoritesVC so they can change accordingly
+//
+//
+
 - (IBAction)changeFavorite:(id)sender {
     [self selectedItem].isFavorite = ![self selectedItem].isFavorite;
     NSLog(@"I now equal %d",[self selectedItem].isFavorite);
